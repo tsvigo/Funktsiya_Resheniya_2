@@ -1,0 +1,1 @@
+# Funktsiya_Resheniya_2
