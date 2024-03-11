@@ -19,7 +19,8 @@ std::vector<unsigned long long
 long long variable_error;
 QString
 // std::string
-    Nazvaniye_fayla_s_neyronami_i_signalom=        "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0-2/neurons_and_signal.txt";
+    Nazvaniye_fayla_s_neyronami_i_signalom="";
+  //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0-2/neurons_and_signal.txt";
 bool Odin_Uchitelia;
 bool Odin_Programmi;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -42,9 +43,21 @@ Dialog::Dialog(QWidget *parent)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /// \brief fileName
 ///
-   if (Nazvaniye_fayla_s_neyronami_i_signalom=="") 
+   if (Nazvaniye_fayla_s_neyronami_i_signalom=="")
+   {
 Nazvaniye_fayla_s_neyronami_i_signalom = QFileDialog::getOpenFileName(this,
-                                           tr("Open txt"), "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly", tr("Txt Files (*.txt)"));  
+                                           tr("Open txt"), "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly", tr("Txt Files (*.txt)"));
+       // надо записать название файла с сигналоми нейронами в файл
+/*----------------------------------------------------------------------------------------------------------------------*/
+QFile file("/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/название файла с нейронами и сигналами.txt");
+if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+    return;
+
+QTextStream out(&file);
+out << Nazvaniye_fayla_s_neyronami_i_signalom;
+file.close();
+/*----------------------------------------------------------------------------------------------------------------------*/
+   }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     std::ifstream is( //NOTE: сигналы 1
         // "/home/viktor/my_projects_qt_2/cycle_of_distinguishing_a_one_with_vectors/neurons_and_signal.txt" // 1.bmp
