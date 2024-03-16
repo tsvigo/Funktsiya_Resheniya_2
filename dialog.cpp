@@ -137,7 +137,8 @@ void Dialog::on_pushButton_clicked()
         // bez_1
         QProcess::startDetached(
             //  "/home/viktor/my_projects_qt_2/build-bez_1-Desktop_Qt_5_12_12_GCC_64bit-Debug/bez_1"
-"/home/viktor/my_projects_qt_2/build-bez_1-Desktop_Qt_5_12_12_GCC_64bit-Debug/bez_1"
+//"/home/viktor/my_projects_qt_2/build-bez_1-Desktop_Qt_5_12_12_GCC_64bit-Debug/bez_1"
+            "/home/viktor/my_projects_qt_2/build-bez_1_GUI-Desktop_Qt_5_12_12_GCC_64bit-Debug/bez_1_GUI"
             , qApp->arguments());  
  //          qApp->quit();
     }
