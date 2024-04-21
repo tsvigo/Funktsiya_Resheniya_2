@@ -50,6 +50,7 @@ Nazvaniye_fayla_s_neyronami_i_signalom = QFileDialog::getOpenFileName(this,
        // надо записать название файла с сигналоми нейронами в файл
 /*----------------------------------------------------------------------------------------------------------------------*/
 QFile file("/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/название файла с нейронами и сигналами.txt");
+// самый новый файл с нейронами и сигналами
 if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
     return;
 
