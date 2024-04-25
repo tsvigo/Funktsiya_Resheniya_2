@@ -1,1 +1,1 @@
-/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/peyzaji/0/neurons_and_signal.txt
+/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-r/neurons_and_signal.txt
