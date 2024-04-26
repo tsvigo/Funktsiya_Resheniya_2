@@ -31,13 +31,15 @@ Dialog::Dialog(QWidget *parent)
 {
     ui->setupUi(this);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    QFile file("/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/название файла с нейронами и сигналами.txt");
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
-        return;
+/// \brief file
+///       // самый новый файл с нейронами и сигналами  
+//    QFile file("/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/название файла с нейронами и сигналами.txt");
+//    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+//        return;
     
-    QTextStream out(&file);
-    out << Nazvaniye_fayla_s_neyronami_i_signalom ;// "\n";
-    file.close(); 
+//    QTextStream out(&file);
+//    out << Nazvaniye_fayla_s_neyronami_i_signalom ;// "\n";
+//    file.close(); 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    std::cout << "Funktsiya_Resheniya_2"<< std::endl;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
