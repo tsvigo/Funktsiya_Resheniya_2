@@ -49,30 +49,22 @@ Dialog::Dialog(QWidget *parent)
    {
 Nazvaniye_fayla_s_neyronami_i_signalom = QFileDialog::getOpenFileName(this,
                                            tr("Open txt"), "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly", tr("Txt Files (*.txt)"));
-       // надо записать название файла с сигналоми нейронами в файл
+       // надо записать название файла с сигналоми нейронами в файл.
+       // наверное не надо - мы же его содержимое не меняли 
 /*----------------------------------------------------------------------------------------------------------------------*/
-QFile file("/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/название файла с нейронами и сигналами.txt");
-// самый новый файл с нейронами и сигналами
-if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
-    return;
+//QFile file("/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/название файла с нейронами и сигналами.txt");
+//// самый новый файл с нейронами и сигналами записываем
+//if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+//    return;
 
-QTextStream out(&file);
-out << Nazvaniye_fayla_s_neyronami_i_signalom;
-file.close();
+//QTextStream out(&file);
+//out << Nazvaniye_fayla_s_neyronami_i_signalom;
+//file.close();
 /*----------------------------------------------------------------------------------------------------------------------*/
    }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     std::ifstream is( //NOTE: сигналы 1
-        // "/home/viktor/my_projects_qt_2/cycle_of_distinguishing_a_one_with_vectors/neurons_and_signal.txt" // 1.bmp
-        //   "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-1/neyroni_i_signal.txt" // 1-1.bmp
-        
-        //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0/neyroni_i_signal.txt"
-        // 1:
-        //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1/neurons_and_signal-2.txt" //NOTE: BMP
-        // 2:
-        //    "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-1(2)/neyroni_i_signal.txt"
-        // 3:
-      //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0-2/neurons_and_signal.txt"
+
        Nazvaniye_fayla_s_neyronami_i_signalom.toStdString().c_str()
         //NOTE: считывание в вектор нейронов и сигналов из файла (НАДО Менять для подстройки)
         );
@@ -81,17 +73,19 @@ file.close();
     
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    std::ifstream is2("/home/viktor/my_projects_qt_2/cycle_of_distinguishing_a_one_with_vectors/synapses.txt-4");
+    std::ifstream is2(
+   // "/home/viktor/my_projects_qt_2/cycle_of_distinguishing_a_one_with_vectors/synapses.txt-4"
+    "/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/synapses.txt"
+    );
     // /home/viktor/my_projects_qt_2/cycle_of_distinguishing_a_one_with_vectors/synapses.txt-4
     std::istream_iterator<unsigned long long> start2(is2), end2;
     std::vector<unsigned long long> list_of_synapses(start2, end2);
-    // f:
-    // std::jmp_buf f;
-    // std::longjmp(f, true); // Go to error handler
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
     variable_error     =   1073741824-list_of_neurons[200] ;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    std::cout << "variable_error = "<< variable_error<< std::endl;
+   std::cout << "list_of_neurons[200] = "<< list_of_neurons[200]<< std::endl;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
     if 
@@ -133,8 +127,8 @@ void Dialog::on_pushButton_clicked()
         Odin_Uchitelia=true; ui->label_2->setText ("Odin_Programmi==false; Odin_Uchitelia=true");
         // cycle_of_distinguishing_a_one_with_vectors_GUI
         QProcess::startDetached(
-          //  "/home/viktor/my_projects_qt_2/build-bez_1-Desktop_Qt_5_12_12_GCC_64bit-Debug/bez_1"
-"/home/viktor/my_projects_qt_2/build-cycle_of_distinguishing_a_one_with_vectors_GUI-Desktop_Qt_5_12_12_GCC_64bit-Debug/cycle_of_distinguishing_a_one_with_vectors_GUI"
+          
+"/home/viktor/my_projects_qt_2_build/build-cycle_of_distinguishing_a_one_with_vectors_GUI_2-Desktop_Qt_5_12_12_GCC_64bit-Debug/cycle_of_distinguishing_a_one_with_vectors_GUI_2"
                                 , qApp->arguments());  
 //   qApp->quit();
     }
