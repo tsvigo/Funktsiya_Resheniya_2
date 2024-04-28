@@ -48,7 +48,7 @@ Dialog::Dialog(QWidget *parent)
    if (Nazvaniye_fayla_s_neyronami_i_signalom=="")
    {
 Nazvaniye_fayla_s_neyronami_i_signalom = QFileDialog::getOpenFileName(this,
-                                           tr("Open txt"), "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly", tr("Txt Files (*.txt)"));
+              tr("Open txt"), "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/peyzaji/", tr("Txt Files (*.txt)"));
        // надо записать название файла с сигналоми нейронами в файл.
        // наверное не надо - мы же его содержимое не меняли 
 /*----------------------------------------------------------------------------------------------------------------------*/
