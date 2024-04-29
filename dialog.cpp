@@ -74,7 +74,7 @@ Nazvaniye_fayla_s_neyronami_i_signalom = QFileDialog::getOpenFileName(this,
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// считываем синапсы из файла в вектор
     std::ifstream is2(
-   // "/home/viktor/my_projects_qt_2/cycle_of_distinguishing_a_one_with_vectors/synapses.txt-4"
+
     "/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/synapses.txt"
     );
     // /home/viktor/my_projects_qt_2/cycle_of_distinguishing_a_one_with_vectors/synapses.txt-4
