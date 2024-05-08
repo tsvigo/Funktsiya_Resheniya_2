@@ -20,9 +20,10 @@ long long variable_error;
 QString
 // std::string
     Nazvaniye_fayla_s_neyronami_i_signalom="";
-  //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0-2/neurons_and_signal.txt";
+
 bool Odin_Uchitelia;
 bool Odin_Programmi;
+int var ;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// 
 Dialog::Dialog(QWidget *parent)
@@ -30,17 +31,7 @@ Dialog::Dialog(QWidget *parent)
     , ui(new Ui::Dialog)
 {
     ui->setupUi(this);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/// \brief file
-///       // самый новый файл с нейронами и сигналами  
-//    QFile file("/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/название файла с нейронами и сигналами.txt");
-//    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
-//        return;
-    
-//    QTextStream out(&file);
-//    out << Nazvaniye_fayla_s_neyronami_i_signalom ;// "\n";
-//    file.close(); 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    std::cout << "Funktsiya_Resheniya_2"<< std::endl;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Открываем файл для решения
     /// \brief fileName
@@ -51,15 +42,7 @@ Nazvaniye_fayla_s_neyronami_i_signalom = QFileDialog::getOpenFileName(this,
               tr("Open txt"), "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/peyzaji_2/", tr("Txt Files (*.txt)"));
        // надо записать название файла с сигналоми нейронами в файл.
        // наверное не надо - мы же его содержимое не меняли 
-/*----------------------------------------------------------------------------------------------------------------------*/
-//QFile file("/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/название файла с нейронами и сигналами.txt");
-//// самый новый файл с нейронами и сигналами записываем
-//if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
-//    return;
 
-//QTextStream out(&file);
-//out << Nazvaniye_fayla_s_neyronami_i_signalom;
-//file.close();
 /*----------------------------------------------------------------------------------------------------------------------*/
    }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -76,12 +59,29 @@ Nazvaniye_fayla_s_neyronami_i_signalom = QFileDialog::getOpenFileName(this,
     std::ifstream is2(
 
     "/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/synapses.txt"
+    //"/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/synapses.txt"
     );
-    // /home/viktor/my_projects_qt_2/cycle_of_distinguishing_a_one_with_vectors/synapses.txt-4
     std::istream_iterator<unsigned long long> start2(is2), end2;
     std::vector<unsigned long long> list_of_synapses(start2, end2);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   считаем ошибку
+// TODO: FIXME: тут должен быть блок вычисления 200 нейрона
+//########################################################################################################
+    for ( var = 100; var < 200; ++var) // This is the range of neurons
+    {
+        for (int neuron_index = 0, synapse_index = 0;   neuron_index < 200, synapse_index < 10100;   ++neuron_index, synapse_index = synapse_index + 100)
+        
+        {
+            // sigpe арифметическое исключение: (СИНАПСЫ бЫЛИ 0 ДЕление на 0)
+            list_of_neurons[var]=list_of_neurons[var]-  (list_of_neurons[neuron_index]/ list_of_synapses[synapse_index]); // + на -   
+        } // вычитаем нейроны
+    }
+    
+    for (int   neuron_index = 100, synapse_index = 10000; neuron_index < 200;   ++neuron_index, ++synapse_index)
+    {
+        list_of_neurons[200] = list_of_neurons[200] - (list_of_neurons[neuron_index] / list_of_synapses[synapse_index]); // + на -
+    }
+//########################################################################################################
     variable_error     =   1073741824-list_of_neurons[200] ;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    std::cout << "variable_error = "<< variable_error<< std::endl;
@@ -110,7 +110,15 @@ Nazvaniye_fayla_s_neyronami_i_signalom = QFileDialog::getOpenFileName(this,
     //       bool Odin_Programmi==true;
 /// 
 /// 
-/// 
+//########################################################################################################
+
+QString text;
+for (const auto& synapse : list_of_synapses) {
+    text += QString::number(synapse) + "\n";
+}
+
+ui->textEdit->setPlainText(text);
+//########################################################################################################
 /// 
 }
 
@@ -118,11 +126,11 @@ Dialog::~Dialog()
 {
     delete ui;
 }
-
+//########################################################################################################//########################################################################################################//########################################################################################################
 // кнопка Ошибка:
 void Dialog::on_pushButton_clicked()
 {
- // выбор программы обуения:
+ // выбор программы обучения:
     if ( Odin_Programmi==false) // Если не распознана 1:
     {
         Odin_Uchitelia=true; ui->label_2->setText ("Odin_Programmi==false; Odin_Uchitelia=true");
@@ -149,3 +157,4 @@ void Dialog::on_pushButton_clicked()
     // если одно сочетание запускаем одну программу, если другое - другую
 }
 
+///// конец
