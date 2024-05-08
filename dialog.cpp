@@ -13,9 +13,7 @@ using namespace std;
 /// \brief list_of_synapses
 /// переменные:
 std::vector<unsigned long long> list_of_synapses ;
-std::vector<unsigned long long
-            //  int
-            > list_of_neurons[201] ;//={};
+std::vector<unsigned long long> list_of_neurons[201] ;//={};
 long long variable_error;
 QString
 // std::string
