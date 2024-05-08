@@ -15,10 +15,7 @@ using namespace std;
 std::vector<unsigned long long> list_of_synapses ;
 std::vector<unsigned long long> list_of_neurons[201] ;//={};
 long long variable_error;
-QString
-// std::string
-    Nazvaniye_fayla_s_neyronami_i_signalom="";
-
+QString  Nazvaniye_fayla_s_neyronami_i_signalom="";
 bool Odin_Uchitelia;
 bool Odin_Programmi;
 int var ;
