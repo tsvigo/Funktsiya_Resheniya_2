@@ -54,14 +54,35 @@ Nazvaniye_fayla_s_neyronami_i_signalom = QFileDialog::getOpenFileName(this,
     
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// считываем синапсы из файла в вектор
-    std::ifstream is2(
+//    std::ifstream is2(
 
-    "/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/synapses.txt"
-    //"/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/synapses.txt"
-    );
-    std::istream_iterator<unsigned long long> start2(is2), end2;
-    std::vector<unsigned long long> list_of_synapses(start2, end2);
+//    "/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/synapses.txt"
+//    //"/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/synapses.txt"
+//    );
+//    std::istream_iterator<unsigned long long> start2(is2), end2;
+//    std::vector<unsigned long long> list_of_synapses(start2, end2);
+//########################################################################################################
+    QFile file(  "/home/viktor/my_projects_qt_2/Funktsiya_Resheniya_2/synapses.txt");
+    if (!file.open(QFile::ReadOnly | QFile::Text)) {
+        throw std::runtime_error("Failed to open file");
+    }
 
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        bool ok;
+        unsigned long long synaps = line.toULongLong(&ok);
+        if (!ok) {
+            throw std::runtime_error("Invalid synaps value in file");
+        }
+        list_of_synapses.push_back(synaps);
+    }
+
+    file.close();
+   // return list_of_neurons;
+//########################################################################################################
+//   std::for_each(list_of_synapses.begin(), list_of_synapses.end(),
+//              [](unsigned long long& x) { x += 1; });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   считаем ошибку
 // TODO: FIXME: тут должен быть блок вычисления 200 нейрона
 //########################################################################################################
@@ -144,9 +165,7 @@ void Dialog::on_pushButton_clicked()
         Odin_Uchitelia=false;  ui->label_2->setText ("Odin_Programmi==true; Odin_Uchitelia=false");
         // bez_1
         QProcess::startDetached(
-            //  "/home/viktor/my_projects_qt_2/build-bez_1-Desktop_Qt_5_12_12_GCC_64bit-Debug/bez_1"
-//"/home/viktor/my_projects_qt_2/build-bez_1-Desktop_Qt_5_12_12_GCC_64bit-Debug/bez_1"
-           // "/home/viktor/my_projects_qt_2/build-bez_1_GUI-Desktop_Qt_5_12_12_GCC_64bit-Debug/bez_1_GUI"
+
            "/home/viktor/my_projects_qt_2_build/build-bez_1_GUI-Desktop_Qt_5_12_12_GCC_64bit-Release/bez_1_GUI"
             , qApp->arguments());  
  //          qApp->quit();
