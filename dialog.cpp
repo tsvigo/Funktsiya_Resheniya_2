@@ -98,6 +98,7 @@ Nazvaniye_fayla_s_neyronami_i_signalom = QFileDialog::getOpenFileName(this,
         list_of_neurons[200] = list_of_neurons[200] - (list_of_neurons[neuron_index] / list_of_synapses[synapse_index]); // + на -
     }
 //########################################################################################################
+list_of_neurons[200]=list_of_neurons[200]-1073741923;
     variable_error     =   1073741824-list_of_neurons[200] ;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    std::cout << "variable_error = "<< variable_error<< std::endl;
@@ -163,7 +164,7 @@ void Dialog::on_pushButton_clicked()
         // bez_1
         QProcess::startDetached(
 
-           "/home/viktor/my_projects_qt_2_build/build-bez_1_GUI-Desktop_Qt_5_12_12_GCC_64bit-Release/bez_1_GUI"
+           "/home/viktor/my_projects_qt_2_build/build-bez_1_GUI_2-Desktop_Qt_5_12_12_GCC_64bit-Release/bez_1_GUI_2"
             , qApp->arguments());  
  //          qApp->quit();
     }
