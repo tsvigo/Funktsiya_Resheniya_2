@@ -98,7 +98,7 @@ Nazvaniye_fayla_s_neyronami_i_signalom = QFileDialog::getOpenFileName(this,
         list_of_neurons[200] = list_of_neurons[200] - (list_of_neurons[neuron_index] / list_of_synapses[synapse_index]); // + на -
     }
 //########################################################################################################
-list_of_neurons[200]=list_of_neurons[200]-1073741923;
+list_of_neurons[200]=list_of_neurons[200]-1073741923;  // поправка
     variable_error     =   1073741824-list_of_neurons[200] ;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    std::cout << "variable_error = "<< variable_error<< std::endl;
